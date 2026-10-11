@@ -15,7 +15,7 @@ public class OrderProcessor {
             case Paid(String paymentId, var amount) -> """
                     Order Status: PAID
                     Details: Payment ID: %s, Amount: $%s
-                    """.formatted(paymentId, amount);
+                    """.formatted(paymentId, amount.toPlainString());
             case Shipped(String trackingCode, var dispatchDate) -> """
                     Order Status: SHIPPED
                     Details: Tracking Code: %s, Dispatch Date: %s

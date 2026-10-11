@@ -43,6 +43,16 @@ class OrderProcessorTest {
     }
 
     @Test
+    void processPaidWithExponentAmountPrintsPlainNumber() {
+        String expected = """
+                Order Status: PAID
+                Details: Payment ID: PAY-2, Amount: $1000
+                """;
+
+        assertEquals(expected, processor.process(new Paid("PAY-2", new BigDecimal("1E+3"))));
+    }
+
+    @Test
     void processShipped() {
         String expected = """
                 Order Status: SHIPPED
